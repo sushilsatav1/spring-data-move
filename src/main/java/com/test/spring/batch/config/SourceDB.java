@@ -1,7 +1,5 @@
 package com.test.spring.batch.config;
 
-import com.test.spring.batch.entity.LetterHistDb2;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +18,7 @@ import static java.lang.System.getProperty;
 @Configuration
     @EnableJpaRepositories(
             basePackages = {"com.test.spring.batch.repository.db1"},
+//            repositoryFactoryBeanClass=Db2Repository.class,
             entityManagerFactoryRef = "srcEntityManager",
             transactionManagerRef = "srcTransactionManager")
     public class SourceDB {
@@ -27,7 +26,7 @@ import static java.lang.System.getProperty;
         @Primary
 
         @Bean(name="primaryDataSource")
-        @ConfigurationProperties(prefix="spring.datasource")
+//        @ConfigurationProperties(prefix="spring.datasource")
         public DataSource srcDataSource() {
 //            return DataSourceBuilder.create().build();
             DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
@@ -68,5 +67,6 @@ import static java.lang.System.getProperty;
         transactionManager.setEntityManagerFactory(
                 srcEntityManager().getObject());
         return transactionManager;
-    }    }
+    }
+}
 
