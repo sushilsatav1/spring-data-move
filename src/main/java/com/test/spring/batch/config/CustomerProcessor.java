@@ -1,7 +1,7 @@
 package com.test.spring.batch.config;
 
-import com.test.spring.batch.entity.LetterHistDb2;
-import com.test.spring.batch.entity.LetterHistDest;
+import com.test.spring.batch.entity.source.LetterHistDb2;
+import com.test.spring.batch.entity.dest.LetterHistDest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.stereotype.Component;
@@ -12,8 +12,9 @@ public class CustomerProcessor implements ItemProcessor<LetterHistDb2, LetterHis
 
     @Override
     public LetterHistDest process(LetterHistDb2 letterHistDb2) {
-        System.out.println("MyBatchProcessor : Processing data : "+letterHistDb2);
+
      log.info("MyBatchProcessor : Processing data : "+letterHistDb2);
+     System.out.println("system MyBatchProcessor : Processing data : "+letterHistDb2);
 
         LetterHistDest letterHistDest = new LetterHistDest();
         letterHistDest.setAcctKey(Integer.valueOf(letterHistDb2.getAcctNbr()));

@@ -1,4 +1,4 @@
-package com.test.spring.batch.entity;
+package com.test.spring.batch.entity.source;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
