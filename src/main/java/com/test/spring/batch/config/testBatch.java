@@ -87,7 +87,7 @@ public class testBatch {
 
 //        return this.stepBuilderFactory.get("step1").<LetterHistDb2, LetterHistDest>chunk(5).reader(itemReader)
 //                .processor(processor()).writer(itemWriter).build();
-        return stepBuilderFactory.get("csv-step11").<LetterHistDb2, LetterHistDest>chunk(200)
+        return stepBuilderFactory.get("csv-step11").<LetterHistDb2, LetterHistDest>chunk(10)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer())
